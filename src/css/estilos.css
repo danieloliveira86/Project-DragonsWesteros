@@ -1,0 +1,114 @@
+ /*Use a fonte Poppins, mas se você não achar, use qualquer uma sem serifa*/
+ body{
+    font-family: "Poppins", sans-serif;
+    max-width: 1280px; /*largura máxima do corpo para a página*/
+    margin: 0 auto; /*espaçamento externo de 0 automático*/
+
+}
+
+.carrossel{
+    position: fixed; /*Não permitir rolagem*/
+    top: 0; /*para que fiquem sempre posicionado no topo e na esquerda*/
+    left: 0;
+    width: 100%;/*Independente da resolução de acesso da máquina, sempre vai deixar proporcionalmente 100%*/
+    z-index: -1; /*o índice do z, a profundidade, vai ficar -1 para que todos os elementos do carrossel fique atrás na camada*/
+
+}
+
+/*Retira todas as informações*/
+.informacoes{
+    display: none;
+}
+
+/*Bloqueia que somente a primeira informação apareça*/
+.informacoes.ativa{
+    display: block;
+}
+
+.conteudo{
+    display: flex; /*Torna o posicionamento mais fácil de posicionar | só que vai deixar os elementos um do lado do outro*/
+    flex-direction: column; /*Posiciona os elementos em coluna*/
+    justify-content: space-evenly; /*justificar o conteúdo uninormemente*/
+    min-height: 100vh; /*Altura mínima do conteúdo (medida relativa)*/
+
+}
+
+.informacoes h1{
+    font-size: 35px; /*Tamanho da fonte*/
+    color: #ffffff;
+    margin-bottom: 80px; /*Margem de baixo com 80px, separando o título do texto*/
+    font-family: "GOT";
+    letter-spacing: 8px;/*espaçamento das letras*/
+}
+
+@font-face {
+    font-family: "GOT";
+    src: url(../fontes/GOT.ttf);
+}
+
+.informacoes .descricao{
+    width: 49%;
+    font-size: 24px;
+    color: #ffffff;
+    line-height: 40px;/*Altura da linha, espaçamento*/
+    height: 300px; /*Caso tenha mais texto. Um texto longo*/
+    overflow: auto;/*para texto longo*/
+    padding-right: 15px; /*Para desgrudar*/
+}
+
+.botoes-carrossel{
+    display: flex;
+    justify-content: center;
+    gap: 20px; /*espaçamento entre elementos*/
+}
+
+.botoes-carrossel .botao{
+    background-color: #ffffff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-color: #ffffff;
+}
+
+.botoes-carrossel .botao.selecionado{
+    background-color: #1d8346;
+}
+
+.imagem{
+    width: 100vw; /*Largura da tela do dispositivo*/
+    height: 100vh;
+    object-fit: cover; /*Vai adequar a imagem*/
+    display: none;
+}
+
+.imagem.ativa{
+    display: block;
+    animation: mudarImagem 0.7s;
+}
+
+/*Série de passos para criar uma animação*/
+@keyframes mudarImagem{
+    from{
+        opacity: 0.85; /*A opacidade parte deste valor*/
+    }
+    to{
+        opacity: 1; /*Até este valor*/
+    }
+}
+
+/*Utilização de um pseudo elemento do CSS*/
+/*Adicionar uma palavra-chave em um seletor que permite usar uma parte específica do elemento sem precisar alterar o conteúdo do HTML (Adicionar uma classe nova ou tag nova)*/
+/*Vamos criar um filtro por cima da imagem*/
+/*Vamos colocar depois do main*/
+main:after{
+    min-height: 100vh;
+    width: 100vw;
+    background-color: blue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+    z-index: -1;
+}

@@ -1,0 +1,45 @@
+/*Criar um arquivo responsivo é criar um estilo para que faça nosso site ficar bonito em todos os tipos de telas de dispositivos*/
+/*Será trabalhado com o conceito de media query*/
+
+
+/*Isso significa que, enquanto a tela estiver em 1280px, todo o estilo que for adicionado aqui estará ativo, caso exceda 1280px, perderá o estilo*/
+
+/*Porém, como já há o código do main after no estilos, então esse script abaixo fica somente como uma base de informação, mas não é necessário e pode ser retirado*/
+
+/*/@media (max-width:1280px) {    
+    body {
+        background: linear-gradient(120deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+    }
+}*/
+
+@media (max-width:1280px) {    
+    body {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width:768px){
+    .informacoes.ativa{
+        display: flex;
+        flex-direction: column;
+        align-items: center; /*Alinha r o texto no centro nas telas menores*/
+    }
+    .informacoes.descricao{
+        width: 60%;
+        text-align: center;
+    }
+}
+
+@media(max-width:425px){
+    body{
+        padding: 40px;
+        }
+
+        .informacoes.descricao{
+            width: 100%; /*caso fique uma tela muito pequena, mostrará em toda a tela*/
+        }
+        .conteudo{
+            min-height: 70vh;
+            gap: 50px;
+        }
+}
